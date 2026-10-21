@@ -12,7 +12,7 @@ function M.get_filetype(ipynb_file, format, metadata)
     return 'markdown'
   elseif format:sub(1, 3) == 'Rmd' then
     return 'markdown'
-  elseif format:sub(1, 2) == 'qmd' then
+  elseif format:sub(1, 3) == 'qmd' then
     return 'quarto'
   else
     if metadata and metadata.kernelspec then
@@ -279,7 +279,7 @@ function M.get_option(name)
   local var_name = 'jupytext_' .. name
   if vim.b[var_name] ~= nil then
     return vim.b[var_name]
-  elseif vim.g[name] ~= nil then
+  elseif vim.g[var_name] ~= nil then
     return vim.g[var_name]
   else
     local value = M.opts[name]
