@@ -12,7 +12,7 @@ function M.get_filetype(ipynb_file, format, metadata)
     return 'markdown'
   elseif format:sub(1, 3) == 'Rmd' then
     return 'markdown'
-  elseif format:sub(1, 2) == 'qmd' then
+  elseif format:sub(1, 3) == 'qmd' then
     return 'quarto'
   else
     if metadata and metadata.kernelspec then
