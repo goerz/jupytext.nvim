@@ -124,6 +124,7 @@ M.setup = function(opts)
       end
 
       vim.cmd.doautocmd({ args = { 'BufReadPost', ipynb_file }, mods = { emsg_silent = true } })
+      vim.api.nvim_exec_autocmds('FileType', { buffer = bufnr })
     end,
   })
 
